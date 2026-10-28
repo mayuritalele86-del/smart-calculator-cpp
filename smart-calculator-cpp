@@ -1,0 +1,106 @@
+#include <stdio.h>
+
+int main()
+{
+    float pi = 3.14;
+    float radius;
+    int l, b, side;
+    float area, perimeter;
+    float num1, num2;
+    char op;
+    int choice;
+
+    printf("\n=== smart calculator ===\n");
+    printf("1. basic calculator\n");
+    printf("2. area and perimeter of rectangle\n");
+    printf("3. area and perimeter of square\n");
+    printf("4. area and perimeter of circle\n");
+    printf("5. exit\n");
+
+    printf("enter your choice:");
+    scanf("%d", &choice);
+
+    switch(choice)
+    {
+        case 1:
+            printf("enter first number:");
+            scanf("%f", &num1);
+
+            printf("enter operation (+, -, *, /):");
+            scanf(" %c", &op);
+
+            printf("enter second number:");
+            scanf("%f", &num2);
+
+            switch(op)
+            {
+                case '+':
+                    printf("result = %f", num1 + num2);
+                    break;
+
+                case '-':
+                    printf("result = %f", num1 - num2);
+                    break;
+
+                case '*':
+                    printf("result = %f", num1 * num2);
+                    break;
+
+                case '/':
+                    if(num2 != 0)
+                        printf("result = %f", num1 / num2);
+                    else
+                        printf("division by zero is not allowed");
+                    break;
+
+                default:
+                    printf("invalid operation");
+            }
+            break;
+
+        case 2:
+            printf("enter length of rectangle:");
+            scanf("%d", &l);
+
+            printf("enter breadth of rectangle:");
+            scanf("%d", &b);
+
+            area = l * b;
+            perimeter = 2 * (l + b);
+
+            printf("area of rectangle = %f\n", area);
+            printf("perimeter of rectangle = %f", perimeter);
+            break;
+
+        case 3:
+            printf("enter side of square:");
+            scanf("%d", &side);
+
+            area = side * side;
+            perimeter = 4 * side;
+
+            printf("area of square = %f\n", area);
+            printf("perimeter of square = %f", perimeter);
+            break;
+
+        case 4:
+            printf("enter radius of circle:");
+            scanf("%f", &radius);
+
+            area = pi * radius * radius;
+            perimeter = 2 * pi * radius;
+
+            printf("area of circle = %f\n", area);
+            printf("circumference of circle = %f", perimeter);
+            break;
+
+        case 5:
+            printf("thank you for using calculator");
+            break;
+
+        default:
+            printf("invalid choice");
+    }
+
+    return 0;
+}
